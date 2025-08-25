@@ -4,12 +4,13 @@ class PascalsWagerMatrix(Scene):
     def construct(self):
         table_one = Table(
             [["Heaven", "Hell"],
-                ["Nothing", "Nothing"]],
+                ["Finite Loss", "Finite Gain"]],
             row_labels=[Text("God Exists"), Text("God Does Not Exist")],
             col_labels=[Text("Belief"), Text("Unbelief")]
-        )
+        ).scale(0.75)
+        # have to have sufficient time for voiceover. just cut if necessary.
         self.play(Create(table_one, run_time=5))
-        self.wait(10)
+        self.wait(30)
         table_two = Table(
             [[r"\infty", r"-\infty"],
              [r"-c", r"+c"]],
@@ -19,7 +20,7 @@ class PascalsWagerMatrix(Scene):
         )
 
         self.play(Transform(table_one, table_two))
-        self.wait(1)
+        self.wait(0.5)
 
         self.play(table_one.animate.scale(0.5).to_edge(UP))
         self.wait(1)
@@ -30,10 +31,13 @@ class PascalsWagerMatrix(Scene):
         explanation_pt_four = Text("Thus, the only rational decision is to believe in God.", font_size=24, color=YELLOW).next_to(explanation_pt_three, DOWN, buff=0.3)
 
         self.play(Write(explanation_pt_one))
-        self.wait(2)
+        self.wait(1)
         self.play(Write(explanation_pt_two))
-        self.wait(2)
+        self.wait(1)
         self.play(Write(explanation_pt_three))
-        self.wait(2)
+        self.wait(1)
         self.play(Write(explanation_pt_four))
-        self.wait(2)
+        self.wait(1)
+
+        # sufficient time for voiceover. same as above: just cut when necessary.
+        self.wait(30)
